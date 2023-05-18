@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?><!--<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:id="@+id/loginFragment"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    android:minHeight="500dp"-->
+<!--    tools:context=".views.LoginFragment">-->
+
+<!--    <EditText-->
+<!--        android:id="@+id/username_edit"-->
+<!--        style="@style/input_text_login_style"-->
+<!--        android:autofillHints="@string/user_name_text"-->
+<!--        android:hint="@string/user_name_text"-->
+<!--        android:inputType="text"-->
+<!--        android:text="@={user.userName}" />-->
+
+<!--    <EditText-->
+<!--        android:id="@+id/password_edit"-->
+<!--        style="@style/input_text_login_style"-->
+<!--        android:layout_marginTop="38dp"-->
+<!--        android:autofillHints="@string/password_text"-->
+<!--        android:hint="@string/password_text"-->
+<!--        android:inputType="textPassword"-->
+<!--        android:text="@={user.password}" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/login_button"-->
+<!--        style="@style/button_login_style"-->
+<!--        android:layout_marginTop="32dp"-->
+<!--        android:text="@string/login_text" />-->
+
+<!--</FrameLayout>-->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.suongltb.shoestoreproject.views.LoginFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/loginFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/username_edit"
+            style="@style/input_text_login_style"
+            android:layout_marginTop="200dp"
+            android:hint="@string/user_name_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/password_edit"
+            style="@style/input_text_login_style"
+            android:layout_marginTop="20dp"
+            android:autofillHints="@string/password_text"
+            android:hint="@string/password_text"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/username_edit" />
+
+        <Button
+            android:id="@+id/login_button"
+            style="@style/button_login_style"
+            android:layout_marginTop="30dp"
+            android:text="@string/login_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/password_edit" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

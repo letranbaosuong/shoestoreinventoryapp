@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Shoe Store Inventory App</string>
+    <string name="user_name_text">Tên đăng nhập</string>
+    <string name="password_text">Mật khẩu</string>
+    <string name="login_text">Đăng nhập</string>
+    <string name="welcome_text">"Chào mừng bạn!"</string>
+    <string name="instructions_screen">Instructions screen</string>
+    <string name="add">Add</string>
+    <string name="continue_text">Tiếp tục</string>
+    <string name="logout">Đăng xuất</string>
+</resources>
