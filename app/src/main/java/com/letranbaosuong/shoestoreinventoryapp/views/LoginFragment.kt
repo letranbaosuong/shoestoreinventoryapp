@@ -1,71 +1,64 @@
 package com.letranbaosuong.shoestoreinventoryapp.views
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.letranbaosuong.shoestoreinventoryapp.R
 import com.letranbaosuong.shoestoreinventoryapp.databinding.FragmentLoginBinding
+import com.letranbaosuong.shoestoreinventoryapp.models.AccountModel
+import com.letranbaosuong.shoestoreinventoryapp.viewmodels.AccountViewModel
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [LoginFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class LoginFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var _accountViewModel: AccountViewModel
+    private lateinit var _loginBinding: FragmentLoginBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        val binding: FragmentLoginBinding =
-            DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
-        binding.loginButton.setOnClickListener {
-            val isUsernameEdit = binding.usernameEdit.text.toString() == "suong"
-            val isPasswordEdit = binding.passwordEdit.text.toString() == "123"
-            if (isUsernameEdit && isPasswordEdit) {
-                it.findNavController().navigate(R.id.welcomeFragment)
-            }
+    ): View {
+        _accountViewModel = ViewModelProvider(this)[AccountViewModel::class.java]
+        _accountViewModel.account.observe(viewLifecycleOwner) { accounts ->
+            Log.i("registerAccount::", accounts.last().userName.toString())
         }
-        return binding.root
-    }
-
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment LoginFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            LoginFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+        _loginBinding =
+            DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
+        _loginBinding.apply {
+            loginButton.setOnClickListener {
+                val userName = usernameEdit.text.toString()
+                val password = passwordEdit.text.toString()
+                val account = AccountModel(userName, password)
+                val isExist = _accountViewModel.isCheckAccountExists(account)
+                if (isExist) {
+                    it.findNavController().navigate(R.id.welcomeFragment)
+                } else {
+                    Toast.makeText(
+                        requireContext(),
+                        "Tài khoản $userName chưa được đăng ký. Vui lòng đăng ký tài khoản!",
+                        Toast.LENGTH_SHORT
+                    )
+                        .show()
                 }
             }
+            registerButton.setOnClickListener {
+                val userName = usernameEdit.text.toString()
+                val password = passwordEdit.text.toString()
+                registerAccount(userName, password)
+            }
+        }
+
+        return _loginBinding.root
+    }
+
+    private fun registerAccount(userName: String?, password: String?) {
+        val newAccount = AccountModel(userName, password)
+        _accountViewModel.addAccount(newAccount)
+        Toast.makeText(requireContext(), "Đăng ký thành công!", Toast.LENGTH_SHORT).show()
     }
 }

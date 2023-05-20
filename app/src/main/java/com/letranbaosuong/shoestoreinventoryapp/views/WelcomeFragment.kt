@@ -26,10 +26,12 @@ private const val ARG_PARAM2 = "param2"
  * Use the [WelcomeFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class WelcomeFragment : Fragment() {
+class WelcomeFragment : Fragment(), MenuProvider {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private var isEditing: Boolean = false
+    private lateinit var binding: FragmentWelcomeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,11 +41,37 @@ class WelcomeFragment : Fragment() {
         }
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.app_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.menu_logout -> {
+                view?.findNavController()?.navigate(R.id.loginFragment)
+                true
+            }
+
+            else -> false
+        }
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu) {
+        super.onPrepareOptionsMenu(menu)
+        val item = menu.findItem(R.id.menu_logout)
+        item.isVisible = isEditing
+    }
+
+    fun updateOptionsMenu() {
+        isEditing = !isEditing
+        requireActivity().invalidateOptionsMenu()
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val binding: FragmentWelcomeBinding =
+        binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_welcome, container, false)
         binding.continueBtn.setOnClickListener {
             it.findNavController().navigate(R.id.instructionsFragment)
@@ -70,6 +98,33 @@ class WelcomeFragment : Fragment() {
                 }
             }
         }, viewLifecycleOwner, Lifecycle.State.RESUMED)
+        binding.appToolbar.inflateMenu(R.menu.app_menu)
+        binding.appToolbar.setOnMenuItemClickListener {
+            when (it.itemId) {
+                R.id.menu_logout -> {
+                    view.findNavController().navigate(R.id.loginFragment)
+                    true
+                }
+
+                else -> false
+            }
+        }
+//        binding.appToolbar.setNavigationIcon(R.drawable.ic_back)
+//        binding.appToolbar.setNavigationOnClickListener { view ->
+//            // Navigate somewhere.
+//        }
+    }
+
+    fun updateToolbar() {
+        isEditing = !isEditing
+
+        val saveItem = binding.appToolbar.menu.findItem(R.id.menu_logout)
+        saveItem.isVisible = isEditing
+
+    }
+
+    fun clearToolbarMenu() {
+        binding.appToolbar.menu.clear()
     }
 
     companion object {
@@ -90,5 +145,20 @@ class WelcomeFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+        menuInflater.inflate(R.menu.app_menu, menu)
+    }
+
+    override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+        return when (menuItem.itemId) {
+            R.id.menu_logout -> {
+                view?.findNavController()?.navigate(R.id.loginFragment)
+                true
+            }
+
+            else -> false
+        }
     }
 }
