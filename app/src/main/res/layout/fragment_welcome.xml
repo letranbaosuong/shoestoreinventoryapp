@@ -23,12 +23,14 @@
             android:layout_marginTop="@dimen/dp200"
             android:fontFamily="@font/roboto"
             android:text="@string/welcome_text"
+            android:textAlignment="center"
             android:textColor="?android:attr/colorActivatedHighlight"
             android:textSize="@dimen/sp28"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center_horizontal" />
 
         <TextView
             android:id="@+id/textView2"
@@ -36,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp16"
             android:fontFamily="@font/roboto"
-            android:text="User Name"
+            android:text="@string/continue_welcome_text"
             android:textColor="@android:color/holo_purple"
             android:textSize="@dimen/sp20"
             android:textStyle="italic"
