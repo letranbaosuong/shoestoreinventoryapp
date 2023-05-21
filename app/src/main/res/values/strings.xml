@@ -4,10 +4,13 @@
     <string name="password_text">Mật khẩu</string>
     <string name="login_text">Đăng nhập</string>
     <string name="welcome_text">Chào mừng đến với Shoe Store!</string>
-    <string name="instructions_screen">Instructions screen</string>
+    <string name="instructions_screen">Hướng dẫn</string>
     <string name="add">Add</string>
     <string name="continue_text">Tiếp tục</string>
     <string name="logout">Đăng xuất</string>
     <string name="register_text">Đăng ký</string>
-    <string name="continue_welcome_text">Hãy nhấn nút Tiếp tục để trãi nghiệm</string>
+    <string name="continue_welcome_text">Hãy nhấn nút "Tiếp tục" để trãi nghiệm</string>
+    <string name="cancel_text">Huỷ</string>
+    <string name="description">- Bấm nút "Hủy" để quay lại màn hình danh sách giày.\n\n- Bấm nút "Lưu" để quay lại màn hình danh sách giày và thêm một sản phẩm giày mới.</string>
+    <string name="save_text">Lưu</string>
 </resources>

@@ -16,149 +16,87 @@ import androidx.navigation.findNavController
 import com.letranbaosuong.shoestoreinventoryapp.R
 import com.letranbaosuong.shoestoreinventoryapp.databinding.FragmentWelcomeBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class WelcomeFragment : Fragment() {
+    private var _isEditing: Boolean = false
+    private lateinit var _welcomeBinding: FragmentWelcomeBinding
 
-/**
- * A simple [Fragment] subclass.
- * Use the [WelcomeFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class WelcomeFragment : Fragment(), MenuProvider {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-    private var isEditing: Boolean = false
-    private lateinit var binding: FragmentWelcomeBinding
+//    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+//        inflater.inflate(R.menu.app_menu, menu)
+//    }
+//
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        return when (item.itemId) {
+//            R.id.menu_logout -> {
+//                view?.findNavController()?.navigate(R.id.loginFragment)
+//                true
+//            }
+//
+//            else -> false
+//        }
+//    }
+//
+//    override fun onPrepareOptionsMenu(menu: Menu) {
+//        super.onPrepareOptionsMenu(menu)
+//        val item = menu.findItem(R.id.menu_logout)
+//        item.isVisible = _isEditing
+//    }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.app_menu, menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.menu_logout -> {
-                view?.findNavController()?.navigate(R.id.loginFragment)
-                true
-            }
-
-            else -> false
-        }
-    }
-
-    override fun onPrepareOptionsMenu(menu: Menu) {
-        super.onPrepareOptionsMenu(menu)
-        val item = menu.findItem(R.id.menu_logout)
-        item.isVisible = isEditing
-    }
-
-    fun updateOptionsMenu() {
-        isEditing = !isEditing
-        requireActivity().invalidateOptionsMenu()
-    }
+//    fun updateOptionsMenu() {
+//        _isEditing = !_isEditing
+//        requireActivity().invalidateOptionsMenu()
+//    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding =
+        _welcomeBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_welcome, container, false)
-        binding.continueBtn.setOnClickListener {
+        _welcomeBinding.continueBtn.setOnClickListener {
             it.findNavController().navigate(R.id.instructionsFragment)
         }
-        return binding.root
+        return _welcomeBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val menuHost: MenuHost = requireActivity()
-        menuHost.addMenuProvider(object : MenuProvider {
-            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
-                menuInflater.inflate(R.menu.app_menu, menu)
-            }
-
-            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-                return when (menuItem.itemId) {
-                    R.id.menu_logout -> {
-                        view.findNavController().navigate(R.id.loginFragment)
-                        true
-                    }
-
-                    else -> false
-                }
-            }
-        }, viewLifecycleOwner, Lifecycle.State.RESUMED)
-        binding.appToolbar.inflateMenu(R.menu.app_menu)
-        binding.appToolbar.setOnMenuItemClickListener {
-            when (it.itemId) {
-                R.id.menu_logout -> {
-                    view.findNavController().navigate(R.id.loginFragment)
-                    true
-                }
-
-                else -> false
-            }
-        }
-//        binding.appToolbar.setNavigationIcon(R.drawable.ic_back)
-//        binding.appToolbar.setNavigationOnClickListener { view ->
-//            // Navigate somewhere.
+//        _welcomeBinding.appToolbar.inflateMenu(R.menu.app_menu)
+//        _welcomeBinding.appToolbar.setOnMenuItemClickListener {
+//            when (it.itemId) {
+//                R.id.menu_logout -> {
+//                    view.findNavController().navigate(R.id.loginFragment)
+//                    true
+//                }
+//
+//                else -> false
+//            }
 //        }
     }
 
-    fun updateToolbar() {
-        isEditing = !isEditing
+//    fun updateToolbar() {
+//        _isEditing = !_isEditing
+//
+//        val saveItem = _welcomeBinding.appToolbar.menu.findItem(R.id.menu_logout)
+//        saveItem.isVisible = _isEditing
+//
+//    }
+//
+//    fun clearToolbarMenu() {
+//        _welcomeBinding.appToolbar.menu.clear()
+//    }
 
-        val saveItem = binding.appToolbar.menu.findItem(R.id.menu_logout)
-        saveItem.isVisible = isEditing
-
-    }
-
-    fun clearToolbarMenu() {
-        binding.appToolbar.menu.clear()
-    }
-
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment WelcomeFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            WelcomeFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
-
-    override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
-        menuInflater.inflate(R.menu.app_menu, menu)
-    }
-
-    override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-        return when (menuItem.itemId) {
-            R.id.menu_logout -> {
-                view?.findNavController()?.navigate(R.id.loginFragment)
-                true
-            }
-
-            else -> false
-        }
-    }
+//    override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+//        menuInflater.inflate(R.menu.app_menu, menu)
+//    }
+//
+//    override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+//        return when (menuItem.itemId) {
+//            R.id.menu_logout -> {
+//                view?.findNavController()?.navigate(R.id.loginFragment)
+//                true
+//            }
+//
+//            else -> false
+//        }
+//    }
 }

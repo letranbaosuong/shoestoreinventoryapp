@@ -8,6 +8,7 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.letranbaosuong.shoestoreinventoryapp.databinding.ActivityMainBinding
 
@@ -23,10 +24,10 @@ class MainActivity : AppCompatActivity() {
                 .findFragmentById(R.id.app_navigator_fragment)
                     as NavHostFragment).navController
         _appBarConfiguration = AppBarConfiguration(_appNavControl.graph)
-        setupActionBarWithNavController(_appNavControl)
+        NavigationUI.setupActionBarWithNavController(this, _appNavControl)
         setContentView(_activityMainBinding.root)
     }
 
     override fun onNavigateUp(): Boolean =
-        _appNavControl.navigateUp() || super.onSupportNavigateUp()
+        _appNavControl.navigateUp() || super.onSupportNavigateUp() || _appNavControl.popBackStack()
 }

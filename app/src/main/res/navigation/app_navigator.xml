@@ -39,5 +39,18 @@
         android:id="@+id/shoeListScrollingFragment"
         android:name="com.letranbaosuong.shoestoreinventoryapp.views.ShoeListScrollingFragment"
         android:label="fragment_shoe_list_scrolling"
-        tools:layout="@layout/fragment_shoe_list_scrolling" />
+        tools:layout="@layout/fragment_shoe_list_scrolling">
+        <action
+            android:id="@+id/action_shoeListScrollingFragment_to_shoeDetailFragment2"
+            app:destination="@id/shoeDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/shoeDetailFragment"
+        android:name="com.letranbaosuong.shoestoreinventoryapp.views.ShoeDetailFragment"
+        android:label="fragment_shoe_detail"
+        tools:layout="@layout/fragment_shoe_detail" >
+        <action
+            android:id="@+id/action_shoeDetailFragment_to_shoeListScrollingFragment"
+            app:destination="@id/shoeListScrollingFragment" />
+    </fragment>
 </navigation>
