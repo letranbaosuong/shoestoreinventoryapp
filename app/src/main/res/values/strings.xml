@@ -13,4 +13,10 @@
     <string name="cancel_text">Huỷ</string>
     <string name="description">- Bấm nút "Hủy" để quay lại màn hình danh sách giày.\n\n- Bấm nút "Lưu" để quay lại màn hình danh sách giày và thêm một sản phẩm giày mới.</string>
     <string name="save_text">Lưu</string>
+    <string name="add_shoe">Thêm giày</string>
+    <string name="shoe_detail_text">Chi tiết giày</string>
+    <string name="shoe_name">Tên Giày</string>
+    <string name="company">Công ty</string>
+    <string name="shoe_size_text">Kích cỡ giày</string>
+    <string name="description_text">Mô tả</string>
 </resources>
