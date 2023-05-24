@@ -18,6 +18,7 @@ import com.letranbaosuong.shoestoreinventoryapp.viewmodels.AccountViewModel
 class LoginFragment : Fragment() {
     private lateinit var _accountViewModel: AccountViewModel
     private lateinit var _loginBinding: FragmentLoginBinding
+    private lateinit var _account: AccountModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,6 +48,7 @@ class LoginFragment : Fragment() {
                 }
             }
             registerButton.setOnClickListener {
+                Log.i("SUONG account", _loginBinding.account?.userName.toString())
                 val userName = usernameEdit.text.toString()
                 val password = passwordEdit.text.toString()
                 registerAccount(userName, password)

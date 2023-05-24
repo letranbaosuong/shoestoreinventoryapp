@@ -4,6 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".views.LoginFragment">
 
+    <data>
+
+        <variable
+            name="account"
+            type="com.letranbaosuong.shoestoreinventoryapp.models.AccountModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/loginFragment"
         android:layout_width="match_parent"
@@ -14,6 +21,7 @@
             style="@style/input_text_login_style"
             android:layout_marginTop="8dp"
             android:hint="@string/user_name_text"
+            android:text="@={account.userName}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
@@ -25,6 +33,7 @@
             android:autofillHints="@string/password_text"
             android:hint="@string/password_text"
             android:inputType="textPassword"
+            android:text="@={account.password}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView4" />

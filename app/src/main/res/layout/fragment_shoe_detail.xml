@@ -4,6 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".views.ShoeDetailFragment">
 
+    <data>
+
+        <variable
+            name="shoe"
+            type="com.letranbaosuong.shoestoreinventoryapp.models.ShoeModel" />
+
+        <variable
+            name="shoeViewModel"
+            type="com.letranbaosuong.shoestoreinventoryapp.viewmodels.ShoeViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/shoeDetailFragment"
         android:layout_width="match_parent"
@@ -50,12 +61,12 @@
             app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
         <LinearLayout
-            android:padding="@dimen/dp16"
             android:id="@+id/linearLayout"
             android:layout_width="409dp"
             android:layout_height="611dp"
             android:layout_marginTop="1dp"
             android:orientation="vertical"
+            android:padding="@dimen/dp16"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView">
@@ -81,7 +92,8 @@
                     android:hint="@string/shoe_name"
                     android:importantForAutofill="no"
                     android:inputType="text"
-                    android:minHeight="50dp" />
+                    android:minHeight="50dp"
+                    android:text="@={shoe.name}" />
             </LinearLayout>
 
             <LinearLayout
@@ -108,7 +120,8 @@
                     android:hint="@string/company"
                     android:importantForAutofill="no"
                     android:inputType="text"
-                    android:minHeight="50dp" />
+                    android:minHeight="50dp"
+                    android:text="@={shoe.company}" />
             </LinearLayout>
 
             <LinearLayout
@@ -136,6 +149,7 @@
                     android:importantForAutofill="no"
                     android:inputType="text"
                     android:minHeight="50dp"
+                    android:text="@{Integer.toString(shoe.size)}"
                     tools:ignore="TextFields" />
             </LinearLayout>
 
@@ -161,6 +175,7 @@
                     android:gravity="top|start"
                     android:hint="@string/description_text"
                     android:inputType="textMultiLine"
+                    android:text="@{shoe.description}"
                     android:textAlignment="viewStart" />
             </LinearLayout>
         </LinearLayout>

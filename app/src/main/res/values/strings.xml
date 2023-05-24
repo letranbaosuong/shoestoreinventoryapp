@@ -19,4 +19,8 @@
     <string name="company">Công ty</string>
     <string name="shoe_size_text">Kích cỡ giày</string>
     <string name="description_text">Mô tả</string>
+    <string name="shoe_name_text">Tên giày: </string>
+    <string name="size_shoe_text">Kích cỡ: </string>
+    <string name="company_text">Công ty: </string>
+    <string name="decription_text">Mô tả: </string>
 </resources>

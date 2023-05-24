@@ -1,55 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <ImageView
-        android:id="@+id/shoeImageView"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:src="@drawable/shoe_image" />
+    <data>
 
-    <LinearLayout
+        <variable
+            name="shoe_item_layout"
+            type="com.letranbaosuong.shoestoreinventoryapp.models.ShoeModel" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/shoeItemCardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_margin="6dp"
+        android:foreground="?android:attr/selectableItemBackground">
 
-        <TextView
-            android:id="@+id/shoeName"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Tên giày"
-            android:textColor="#000000"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/shoeSize"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Size: 12"
-            android:textColor="#000000"
-            android:textSize="14sp"
-            android:textStyle="normal" />
 
-        <TextView
-            android:id="@+id/shoeCompany"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Adidas"
-            android:textColor="#000000"
-            android:textSize="12sp"
-            android:textStyle="normal" />
+            <ImageView
+                android:id="@+id/shoeImageView"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/shoe_image" />
 
-        <TextView
-            android:id="@+id/shoeDescription"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Chính hãng, màu đẹp, giá rẻ."
-            android:textColor="#000000"
-            android:textSize="12sp"
-            android:textStyle="normal" />
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-</LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/shoeName"
+                        style="@style/item_style_shoe_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/shoe_name_text" />
+
+                    <TextView
+                        android:id="@+id/shoeNameShow"
+                        style="@style/item_style_shoe_name"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/shoeSize"
+                        style="@style/item_style_shoe_size"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/size_shoe_text" />
+
+                    <TextView
+                        android:id="@+id/shoeSizeShow"
+                        style="@style/item_style_shoe_size"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/shoeCompany"
+                        style="@style/item_style_shoe_company"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/company_text" />
+
+                    <TextView
+                        android:id="@+id/shoeCompanyShow"
+                        style="@style/item_style_shoe_company"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/shoeDescription"
+                        style="@style/item_style_shoe_description"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/decription_text" />
+
+                    <TextView
+                        android:id="@+id/shoeDescriptionShow"
+                        style="@style/item_style_shoe_description"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>
