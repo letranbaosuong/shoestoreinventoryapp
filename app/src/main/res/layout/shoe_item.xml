@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
         <variable
-            name="shoe_item_layout"
+            name="shoe"
             type="com.letranbaosuong.shoestoreinventoryapp.models.ShoeModel" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/shoeItemCardView"
+        android:id="@+id/shoe_item_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="6dp"
@@ -49,7 +50,12 @@
                         style="@style/item_style_shoe_name"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:paddingStart="@dimen/dp8"
+                        android:paddingLeft="@dimen/dp8"
+                        android:text="@{shoe.name}"
+                        tools:ignore="RtlSymmetry" />
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -69,7 +75,11 @@
                         style="@style/item_style_shoe_size"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:paddingStart="@dimen/dp8"
+                        android:paddingLeft="@dimen/dp8"
+                        android:text="@{String.valueOf(shoe.size)}"
+                        tools:ignore="RtlSymmetry" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -89,7 +99,11 @@
                         style="@style/item_style_shoe_company"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:paddingStart="@dimen/dp8"
+                        android:paddingLeft="@dimen/dp8"
+                        android:text="@{shoe.company}"
+                        tools:ignore="RtlSymmetry" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -109,7 +123,11 @@
                         style="@style/item_style_shoe_description"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:paddingStart="@dimen/dp8"
+                        android:paddingLeft="@dimen/dp8"
+                        android:text="@{shoe.description}"
+                        tools:ignore="RtlSymmetry" />
                 </LinearLayout>
             </LinearLayout>
 

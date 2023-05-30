@@ -78,13 +78,16 @@
 
                 <TextView
                     android:id="@+id/textView7"
-                    style="@style/label_text_style"
-                    android:layout_width="66dp"
-                    android:text="@string/shoe_name" />
+                    android:layout_width="118dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:text="@string/shoe_name"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/editShoeName"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:autofillHints=""
@@ -120,8 +123,7 @@
                     android:hint="@string/company"
                     android:importantForAutofill="no"
                     android:inputType="text"
-                    android:minHeight="50dp"
-                    android:text="@={shoe.company}" />
+                    android:minHeight="50dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -149,7 +151,6 @@
                     android:importantForAutofill="no"
                     android:inputType="text"
                     android:minHeight="50dp"
-                    android:text="@{Integer.toString(shoe.size)}"
                     tools:ignore="TextFields" />
             </LinearLayout>
 
@@ -167,7 +168,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/editTextText3"
+                    android:id="@+id/editTextDescription"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="start"
@@ -175,7 +176,6 @@
                     android:gravity="top|start"
                     android:hint="@string/description_text"
                     android:inputType="textMultiLine"
-                    android:text="@{shoe.description}"
                     android:textAlignment="viewStart" />
             </LinearLayout>
         </LinearLayout>

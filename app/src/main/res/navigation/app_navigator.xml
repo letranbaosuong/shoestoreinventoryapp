@@ -7,69 +7,81 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.letranbaosuong.shoestoreinventoryapp.views.LoginFragment"
-        android:label="fragment_login"
+        android:label="@string/login"
         tools:layout="@layout/fragment_login">
         <action
-            android:id="@+id/action_loginFragment_to_welcomeFragment2"
+            android:id="@+id/action_loginFragment_to_welcomeFragment"
             app:destination="@id/welcomeFragment"
-            app:enterAnim="@anim/app_fade_in"
+            app:enterAnim="@anim/app_slide_in"
             app:exitAnim="@anim/app_fade_out"
-            app:popEnterAnim="@anim/app_fade_out"
-            app:popExitAnim="@anim/app_fade_in" />
+            app:popEnterAnim="@anim/app_fade_in"
+            app:popExitAnim="@anim/app_slide_out" />
     </fragment>
     <fragment
         android:id="@+id/welcomeFragment"
         android:name="com.letranbaosuong.shoestoreinventoryapp.views.WelcomeFragment"
-        android:label="fragment_welcome"
+        android:label="@string/welcome"
         tools:layout="@layout/fragment_welcome">
         <action
-            android:id="@+id/action_welcomeFragment_to_instructionsFragment2"
-            app:destination="@id/instructionsFragment" />
+            android:id="@+id/action_welcomeFragment_to_instructionsFragment"
+            app:destination="@id/instructionsFragment"
+            app:enterAnim="@anim/app_slide_in"
+            app:exitAnim="@anim/app_fade_out"
+            app:popEnterAnim="@anim/app_fade_in"
+            app:popExitAnim="@anim/app_slide_out" />
         <action
             android:id="@+id/action_welcomeFragment_to_loginFragment"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"
-            app:popUpTo="@id/loginFragment"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/instructionsFragment"
         android:name="com.letranbaosuong.shoestoreinventoryapp.views.InstructionsFragment"
-        android:label="fragment_instructions"
+        android:label="@string/instructions"
         tools:layout="@layout/fragment_instructions">
         <action
             android:id="@+id/action_instructionsFragment_to_shoeListScrollingFragment2"
-            app:destination="@id/shoeListScrollingFragment" />
+            app:destination="@id/shoeListScrollingFragment"
+            app:enterAnim="@anim/app_slide_in"
+            app:exitAnim="@anim/app_fade_out"
+            app:popEnterAnim="@anim/app_fade_in"
+            app:popExitAnim="@anim/app_slide_out" />
         <action
             android:id="@+id/action_instructionsFragment_to_welcomeFragment"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"
-            app:popUpTo="@id/welcomeFragment"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/welcomeFragment" />
     </fragment>
     <fragment
         android:id="@+id/shoeListScrollingFragment"
         android:name="com.letranbaosuong.shoestoreinventoryapp.views.ShoeListScrollingFragment"
-        android:label="fragment_shoe_list_scrolling"
+        android:label="@string/shoe_list"
         tools:layout="@layout/fragment_shoe_list_scrolling">
         <action
-            android:id="@+id/action_shoeListScrollingFragment_to_shoeDetailFragment2"
-            app:destination="@id/shoeDetailFragment" />
+            android:id="@+id/action_shoeListScrollingFragment_to_shoeDetailFragment"
+            app:destination="@id/shoeDetailFragment"
+            app:enterAnim="@anim/app_slide_in"
+            app:exitAnim="@anim/app_fade_out"
+            app:popEnterAnim="@anim/app_fade_in"
+            app:popExitAnim="@anim/app_slide_out" />
         <action
             android:id="@+id/action_shoeListScrollingFragment_to_instructionsFragment"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"
-            app:popUpTo="@id/instructionsFragment"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@animator/nav_default_pop_exit_anim" />
+            app:popExitAnim="@animator/nav_default_pop_exit_anim"
+            app:popUpTo="@id/instructionsFragment" />
     </fragment>
     <fragment
         android:id="@+id/shoeDetailFragment"
         android:name="com.letranbaosuong.shoestoreinventoryapp.views.ShoeDetailFragment"
-        android:label="fragment_shoe_detail"
-        tools:layout="@layout/fragment_shoe_detail" >
+        android:label="@string/shoe_detail"
+        tools:layout="@layout/fragment_shoe_detail">
         <action
             android:id="@+id/action_shoeDetailFragment_to_shoeListScrollingFragment"
             app:destination="@id/shoeListScrollingFragment" />
@@ -77,8 +89,8 @@
             android:id="@+id/action_shoeDetailFragment_to_shoeListScrollingFragment2"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"
-            app:popUpTo="@id/shoeListScrollingFragment"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/shoeListScrollingFragment" />
     </fragment>
 </navigation>

@@ -23,4 +23,9 @@
     <string name="size_shoe_text">Kích cỡ: </string>
     <string name="company_text">Công ty: </string>
     <string name="decription_text">Mô tả: </string>
+    <string name="welcome">Welcome</string>
+    <string name="instructions">Instructions</string>
+    <string name="login">Login</string>
+    <string name="shoe_list">Shoe List</string>
+    <string name="shoe_detail">Shoe Detail</string>
 </resources>

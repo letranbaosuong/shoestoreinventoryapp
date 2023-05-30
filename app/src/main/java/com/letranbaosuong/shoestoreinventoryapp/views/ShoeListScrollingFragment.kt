@@ -1,7 +1,6 @@
 package com.letranbaosuong.shoestoreinventoryapp.views
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
@@ -10,29 +9,24 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
-import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.letranbaosuong.shoestoreinventoryapp.R
 import com.letranbaosuong.shoestoreinventoryapp.databinding.FragmentShoeListScrollingBinding
 import com.letranbaosuong.shoestoreinventoryapp.viewmodels.ShoeViewModel
 
 class ShoeListScrollingFragment : Fragment() {
-    private lateinit var _shoeViewModel: ShoeViewModel
+    private val _shoeViewModel: ShoeViewModel by activityViewModels()
     private lateinit var _shoeListScrollingBinding: FragmentShoeListScrollingBinding
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
-        _shoeListScrollingBinding = DataBindingUtil.inflate(
-            inflater,
-            R.layout.fragment_shoe_list_scrolling,
-            container,
-            false
+        _shoeListScrollingBinding = FragmentShoeListScrollingBinding.inflate(
+            inflater, container, false
         )
         _shoeListScrollingBinding.lifecycleOwner = this
-        _shoeViewModel = ViewModelProvider(this)[ShoeViewModel::class.java]
         _shoeListScrollingBinding.apply {
             addButton.setOnClickListener {
                 view?.findNavController()?.navigate(R.id.shoeDetailFragment)
@@ -41,11 +35,8 @@ class ShoeListScrollingFragment : Fragment() {
         _shoeViewModel.shoes.observe(viewLifecycleOwner) {
             if (it.isNotEmpty()) {
                 it.forEach { itemShoe ->
-                    val itemShoeLayout = context?.let { it1 -> ShoeItemLayout(it1) }
-                    itemShoeLayout?.let {
-                        itemShoeLayout.itemShoe(itemShoe)
-                        _shoeListScrollingBinding.listShoe.addView(itemShoeLayout)
-                    }
+                    val shoeItemLayout = ShoeItemLayout(activity, itemShoe)
+                    _shoeListScrollingBinding.listShoe.addView(shoeItemLayout)
                 }
             }
         }

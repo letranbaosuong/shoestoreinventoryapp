@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import com.letranbaosuong.shoestoreinventoryapp.R
 import com.letranbaosuong.shoestoreinventoryapp.databinding.FragmentLoginBinding
@@ -16,15 +16,13 @@ import com.letranbaosuong.shoestoreinventoryapp.models.AccountModel
 import com.letranbaosuong.shoestoreinventoryapp.viewmodels.AccountViewModel
 
 class LoginFragment : Fragment() {
-    private lateinit var _accountViewModel: AccountViewModel
+    private val _accountViewModel: AccountViewModel by activityViewModels()
     private lateinit var _loginBinding: FragmentLoginBinding
-    private lateinit var _account: AccountModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _accountViewModel = ViewModelProvider(this)[AccountViewModel::class.java]
         _accountViewModel.account.observe(viewLifecycleOwner) { accounts ->
             Log.i("registerAccount::", accounts.last().userName.toString())
         }
