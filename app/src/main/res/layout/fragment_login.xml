@@ -11,6 +11,7 @@
             type="com.letranbaosuong.shoestoreinventoryapp.models.AccountModel" />
     </data>
 
+    <!--Use ConstraintLayout-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/loginFragment"
         android:layout_width="match_parent"

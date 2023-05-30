@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".views.InstructionsFragment">
 
+    <!--Use ConstraintLayout-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/instructionsFragment"
         android:layout_width="match_parent"

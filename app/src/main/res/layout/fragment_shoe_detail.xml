@@ -15,6 +15,7 @@
             type="com.letranbaosuong.shoestoreinventoryapp.viewmodels.ShoeViewModel" />
     </data>
 
+    <!--Use ConstraintLayout-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/shoeDetailFragment"
         android:layout_width="match_parent"
