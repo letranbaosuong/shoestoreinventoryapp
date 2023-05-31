@@ -1,7 +1,5 @@
 package com.letranbaosuong.shoestoreinventoryapp.models
 
-import android.os.Parcelable
-
 
 data class ShoeModel(
     var id: Int = -1,

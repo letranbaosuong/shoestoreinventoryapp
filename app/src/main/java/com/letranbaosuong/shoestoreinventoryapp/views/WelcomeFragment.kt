@@ -20,7 +20,7 @@ class WelcomeFragment : Fragment() {
         _welcomeBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_welcome, container, false)
         _welcomeBinding.continueBtn.setOnClickListener {
-            it.findNavController().navigate(R.id.instructionsFragment)
+            it.findNavController().navigate(R.id.action_welcomeFragment_to_instructionsFragment)
         }
         return _welcomeBinding.root
     }

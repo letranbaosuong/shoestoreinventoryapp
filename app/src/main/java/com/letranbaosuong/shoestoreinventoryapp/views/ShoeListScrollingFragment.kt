@@ -29,7 +29,8 @@ class ShoeListScrollingFragment : Fragment() {
         _shoeListScrollingBinding.lifecycleOwner = this
         _shoeListScrollingBinding.apply {
             addButton.setOnClickListener {
-                view?.findNavController()?.navigate(R.id.shoeDetailFragment)
+                view?.findNavController()
+                    ?.navigate(R.id.action_shoeListScrollingFragment_to_shoeDetailFragment)
             }
         }
         _shoeViewModel.shoes.observe(viewLifecycleOwner) {
@@ -54,7 +55,10 @@ class ShoeListScrollingFragment : Fragment() {
             override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
                 return when (menuItem.itemId) {
                     R.id.menu_logout -> {
-                        view.findNavController().navigate(R.id.loginFragment)
+                        view.findNavController().popBackStack(
+                            R.id.loginFragment,
+                            false
+                        )
                         true
                     }
 

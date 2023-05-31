@@ -35,7 +35,7 @@ class LoginFragment : Fragment() {
                 val account = AccountModel(userName, password)
                 val isExist = _accountViewModel.isCheckAccountExists(account)
                 if (isExist) {
-                    it.findNavController().navigate(R.id.welcomeFragment)
+                    it.findNavController().navigate(R.id.action_loginFragment_to_welcomeFragment)
                 } else {
                     Toast.makeText(
                         requireContext(),

@@ -1,11 +1,11 @@
 package com.letranbaosuong.shoestoreinventoryapp.views
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.letranbaosuong.shoestoreinventoryapp.R
 import com.letranbaosuong.shoestoreinventoryapp.databinding.FragmentInstructionsBinding
@@ -20,7 +20,8 @@ class InstructionsFragment : Fragment() {
             DataBindingUtil.inflate(inflater, R.layout.fragment_instructions, container, false)
         _instructionsBinding.apply {
             nextButton.setOnClickListener {
-                view?.findNavController()?.navigate(R.id.shoeListScrollingFragment)
+                view?.findNavController()
+                    ?.navigate(R.id.action_instructionsFragment_to_shoeListScrollingFragment)
             }
         }
         return _instructionsBinding.root

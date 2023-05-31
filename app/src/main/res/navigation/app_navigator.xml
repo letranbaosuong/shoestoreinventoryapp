@@ -43,7 +43,7 @@
         android:label="@string/instructions"
         tools:layout="@layout/fragment_instructions">
         <action
-            android:id="@+id/action_instructionsFragment_to_shoeListScrollingFragment2"
+            android:id="@+id/action_instructionsFragment_to_shoeListScrollingFragment"
             app:destination="@id/shoeListScrollingFragment"
             app:enterAnim="@anim/app_slide_in"
             app:exitAnim="@anim/app_fade_out"
@@ -76,6 +76,13 @@
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@animator/nav_default_pop_exit_anim"
             app:popUpTo="@id/instructionsFragment" />
+        <action
+            android:id="@+id/action_shoeListScrollingFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/app_slide_in"
+            app:exitAnim="@anim/app_fade_out"
+            app:popEnterAnim="@anim/app_fade_in"
+            app:popExitAnim="@anim/app_slide_out" />
     </fragment>
     <fragment
         android:id="@+id/shoeDetailFragment"
@@ -84,7 +91,11 @@
         tools:layout="@layout/fragment_shoe_detail">
         <action
             android:id="@+id/action_shoeDetailFragment_to_shoeListScrollingFragment"
-            app:destination="@id/shoeListScrollingFragment" />
+            app:destination="@id/shoeListScrollingFragment"
+            app:enterAnim="@anim/app_slide_in"
+            app:exitAnim="@anim/app_fade_out"
+            app:popEnterAnim="@anim/app_fade_in"
+            app:popExitAnim="@anim/app_slide_out" />
         <action
             android:id="@+id/action_shoeDetailFragment_to_shoeListScrollingFragment2"
             app:enterAnim="@anim/nav_default_enter_anim"

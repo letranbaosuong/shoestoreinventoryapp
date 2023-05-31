@@ -7,8 +7,8 @@
     <data>
 
         <variable
-            name="shoe"
-            type="com.letranbaosuong.shoestoreinventoryapp.models.ShoeModel" />
+            name="shoeDetail"
+            type="com.letranbaosuong.shoestoreinventoryapp.viewmodels.ShoeDetailViewModel" />
 
         <variable
             name="shoeViewModel"
@@ -97,7 +97,7 @@
                     android:importantForAutofill="no"
                     android:inputType="text"
                     android:minHeight="50dp"
-                    android:text="@={shoe.name}" />
+                    android:text="@={shoeDetail.name}" />
             </LinearLayout>
 
             <LinearLayout
@@ -124,7 +124,8 @@
                     android:hint="@string/company"
                     android:importantForAutofill="no"
                     android:inputType="text"
-                    android:minHeight="50dp" />
+                    android:minHeight="50dp"
+                    android:text="@={shoeDetail.company}" />
             </LinearLayout>
 
             <LinearLayout
@@ -152,6 +153,7 @@
                     android:importantForAutofill="no"
                     android:inputType="text"
                     android:minHeight="50dp"
+                    android:text="@={shoeDetail.size}"
                     tools:ignore="TextFields" />
             </LinearLayout>
 
@@ -177,6 +179,7 @@
                     android:gravity="top|start"
                     android:hint="@string/description_text"
                     android:inputType="textMultiLine"
+                    android:text="@={shoeDetail.description}"
                     android:textAlignment="viewStart" />
             </LinearLayout>
         </LinearLayout>

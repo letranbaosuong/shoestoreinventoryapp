@@ -22,15 +22,16 @@ class MainActivity : AppCompatActivity() {
                     as NavHostFragment).navController
         _appBarConfiguration = AppBarConfiguration(_appNavControl.graph)
         NavigationUI.setupActionBarWithNavController(this, _appNavControl)
-        setContentView(_activityMainBinding.root)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        setContentView(_activityMainBinding.root)
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
         _appNavControl.popBackStack()
     }
 
-
-    override fun onNavigateUp(): Boolean =
-        _appNavControl.navigateUp() || super.onSupportNavigateUp() || _appNavControl.popBackStack()
+    override fun onSupportNavigateUp(): Boolean {
+        return _appNavControl.navigateUp() || super.onSupportNavigateUp() || _appNavControl.popBackStack()
+    }
 }
